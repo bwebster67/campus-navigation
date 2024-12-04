@@ -6,7 +6,7 @@ from tqdm import tqdm
 from timeit import timeit
 
 
-def experimental_comparison(iterations: int = 5):
+def experimental_comparison(iterations: int = 5) -> None:
     """
     Compares the performance of the pathfinding algorithms.
     """
