@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distance & Walking Time Calculator</title>
+    <title>Willamette University Campus Navigation System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
@@ -70,7 +70,8 @@
         .map-container {
             margin-top: 20px;
             width: 100%;
-            height: 400px;
+            height: 650px;
+            overflow: auto;
         }
     </style>
 </head>
@@ -93,14 +94,14 @@
 
         {% if distance %}
         <div class="results">
-            <p><strong>Distance:</strong> {{ distance }} km</p>
+            <p><strong>Distance:</strong> {{ distance }} ft</p>
             <p><strong>Estimated Walking Time:</strong> {{ walking_time }} minutes</p>
         </div>
         {% endif %}
 
         {% if map_html %}
         <div class="map-container">
-            <iframe src="{{ map_html }}" width="100%" height="100%" style="border:none;"></iframe>
+            <iframe src="{{ map_html }}" width="100%" height="100%" style="border:none;" tabindex="-1"></iframe>
         </div>
         {% endif %}
     </div>

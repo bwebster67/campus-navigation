@@ -10,6 +10,15 @@ import requests
 class Location:
     entrances: list[Node]
 
+    def __hash__(self):
+        """
+        Necessary for flask stuff
+        """
+        coords = ""
+        for node in self.entrances:
+            coords += str(node.coords)
+        return hash(coords)
+
 def build_graph(web_linked = False, file: str = "doc.kml") -> tuple[Graph, dict[str, Location], dict[str, Node]]:
     """
     Returns a tuple containing the graph at index 0, 

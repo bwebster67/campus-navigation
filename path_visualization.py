@@ -7,7 +7,7 @@ ZOOM_LEVEL = 18
 LOCATION_COLOR = 'blue'
 PATH_NODE_COLOR = 'transparent'
 
-def create_path_map(start_node: Node, goal_node: Node, path: list[Node]) -> None:
+def create_path_map(start_node: Node, goal_node: Node, path: list[Node], file_location: str= "path_maps", open_map: bool = True) -> None:
     """
     Creates an HTML file with the shortest path overlayed over a map of the Willamette University campus.
     """
@@ -57,8 +57,8 @@ def create_path_map(start_node: Node, goal_node: Node, path: list[Node]) -> None
     folium.PolyLine(path_coords, color='red', weight=2.5, opacity=1).add_to(campus_map)
 
     # Save the map to an HTML file
-    folder = "path_maps"
-    file_name = f"{start_node.name}_to_{goal_node.name}.html"
+    folder = file_location
+    file_name = "map.html"
     file_path = Path(folder) / file_name  # Correct path joining
 
     # Convert to URI
@@ -68,5 +68,6 @@ def create_path_map(start_node: Node, goal_node: Node, path: list[Node]) -> None
     campus_map.save(file_path)
 
     # Open in a new tab
-    webbrowser.open_new_tab(file_url)
+    if open_map:
+        webbrowser.open_new_tab(file_url)
 

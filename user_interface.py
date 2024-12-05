@@ -1,7 +1,6 @@
 # user_interface.py
 from graph_building import Location, build_graph
-from pathfinding_algorithms import run_algorithm
-from pathfinding_algorithms import euclidean_heuristic
+from pathfinding_algorithms import euclidean_heuristic, calculate_optimal_entrances
 from path_visualization import create_path_map
 from graph import Graph, Node
 
@@ -133,17 +132,7 @@ def run(file: str = "https://www.google.com/maps/d/u/0/kml?forcekml=1&mid=1O_JqD
         algorithm, heuristic = ui_get_algorithm()
         print("Calculating path...")
         # Calculate path from every entrance for start to every entrance of goal
-        paths = []
-        for start_entrance in start_location.entrances:
-            for goal_entrance in goal_location.entrances:
-                cost, path = run_algorithm(graph, start_entrance, goal_entrance, algorithm, heuristic)
-                paths.append((cost,path, start_entrance, goal_entrance))
-        shortest = paths[0]
-        for i in range(1, len(paths)):
-            path = paths[i]
-            if path[0] < shortest[0]:
-                shortest = path
-        cost, path, start, goal = shortest
+        cost, path, start, goal = calculate_optimal_entrances(graph, start_location, goal_location, algorithm, heuristic)
 
         ui_output_distance_and_time(cost)
         ui_path_map(start, goal, path)

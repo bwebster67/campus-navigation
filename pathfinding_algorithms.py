@@ -2,6 +2,7 @@
 # File defining the pathfinding algorithms.
 from graph import Graph, Node
 from geopy.distance import lonlat, distance
+from graph_building import Location
 import heapq
 
 
@@ -40,6 +41,21 @@ def trace_path(start: Node, goal: Node, came_from: dict) -> list[Node]:
     path.reverse()
 
     return path
+
+
+def calculate_optimal_entrances(graph: Graph, start_location: Location, goal_location: Location, algorithm: str, heuristic: callable= None):
+    paths = []
+    for start_entrance in start_location.entrances:
+        for goal_entrance in goal_location.entrances:
+            cost, path = run_algorithm(graph, start_entrance, goal_entrance, algorithm, heuristic)
+            paths.append((cost,path, start_entrance, goal_entrance))
+    shortest = paths[0]
+    for i in range(1, len(paths)):
+        path = paths[i]
+        if path[0] < shortest[0]:
+            shortest = path
+    cost, path, start, goal = shortest
+    return (cost, path, start, goal)
 
 
 def dijkstra(graph: Graph, start: Node, goal: Node) -> tuple[int, list[Node]]:
