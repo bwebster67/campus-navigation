@@ -1,0 +1,15 @@
+body {
+    background-color: powderblue;
+}
+h1 {
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+div {
+  width:auto;
+  margin:auto;
+}

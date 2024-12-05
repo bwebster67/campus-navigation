@@ -6,8 +6,8 @@ from kmz_extract import convert_to_kml
 
 def main():
 
-    # run()
-    experimental_comparison()
+    run()
+    # experimental_comparison()
 
 
 if __name__ == "__main__":
