@@ -6,6 +6,10 @@
     <title>Willamette University Campus Navigation System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        html { 
+            overflow-y: auto;
+            overflow-x: hidden; 
+        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -14,8 +18,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: auto;
             flex-direction: column;
+            overflow-y: auto;
         }
         .container {
             width: 80%;
@@ -24,6 +29,8 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
         h1 {
             text-align: center;
@@ -37,7 +44,7 @@
             color: #34495e;
         }
         input[type="text"] {
-            width: 100%;
+            width: 97%;
             padding: 10px;
             font-size: 1em;
             border: 2px solid #ddd;
@@ -69,6 +76,7 @@
         }
         .map-container {
             margin-top: 20px;
+            margin-bottom: 20px;
             width: 100%;
             height: 650px;
             overflow: auto;
@@ -83,11 +91,21 @@
         <form method="POST">
             <div class="form-group">
                 <label for="start_location">Start Location:</label>
-                <input type="text" id="start_location" name="start_location" placeholder="e.g. Goudy Commons" required>
+                <input type="text" id="start_location" name="start_location" placeholder="e.g. Goudy Commons" list= "start_location_list" required>
+                <datalist id="start_location_list">
+                    {% for option in options %}
+                    <option value="{{ option }}"></option>
+                    {% endfor %}
+                </datalist>
             </div>
             <div class="form-group">
                 <label for="end_location">End Location:</label>
-                <input type="text" id="end_location" name="end_location" placeholder="e.g. Ford Hall" required>
+                <input type="text" id="end_location" name="end_location" placeholder="e.g. Ford Hall" list= "end_location_list" required>
+                <datalist id="end_location_list">
+                    {% for option in options %}
+                    <option value="{{ option }}"></option>
+                    {% endfor %}
+                </datalist>
             </div>
             <button type="submit">Navigate</button>
         </form>
