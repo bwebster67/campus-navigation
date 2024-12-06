@@ -43,7 +43,7 @@ def trace_path(start: Node, goal: Node, came_from: dict) -> list[Node]:
     return path
 
 
-def calculate_optimal_entrances(graph: Graph, start_location: Location, goal_location: Location, algorithm: str, heuristic: callable= None):
+def calculate_optimal_entrances(graph: Graph, start_location: Location, goal_location: Location, algorithm: str, heuristic: callable= None) -> tuple[int, list[Node], Node, Node]:
     paths = []
     for start_entrance in start_location.entrances:
         for goal_entrance in goal_location.entrances:

@@ -3,11 +3,10 @@ from graph import Node
 import webbrowser
 from pathlib import Path
 MAP_CENTER = [44.93598, -123.03066]
-ZOOM_LEVEL = 18
 LOCATION_COLOR = 'blue'
 PATH_NODE_COLOR = 'transparent'
 
-def create_path_map(start_node: Node, goal_node: Node, path: list[Node], file_location: str= "path_maps", open_map: bool = True) -> None:
+def create_path_map(start_node: Node, goal_node: Node, path: list[Node], file_location: str= "path_maps", open_map: bool = True, zoom: int = 18) -> None:
     """
     Creates an HTML file with the shortest path overlayed over a map of the Willamette University campus.
     """
@@ -40,7 +39,7 @@ def create_path_map(start_node: Node, goal_node: Node, path: list[Node], file_lo
         return marker
 
     # Create the map object
-    campus_map = folium.Map(location= MAP_CENTER, zoom_start= ZOOM_LEVEL)  # Start zoom level, adjust as needed
+    campus_map = folium.Map(location= MAP_CENTER, zoom_start= zoom)  # Start zoom level, adjust as needed
 
     markers = []
 

@@ -32,13 +32,19 @@ def home():
         cost, path, start, goal = calculate_optimal_entrances(graph_data["graph"], graph_data["locations"][start_location], graph_data["locations"][end_location], algorithm= "dijkstra")
         
         # Creating map
-        create_path_map(start, goal, path, "static", open_map= False)
+            # Add something to make the center of the map be the center of the euclidean distance.
+        zoom = 18
+        if cost > 1000:
+            zoom = 17
+        create_path_map(start, goal, path, "static", open_map= False, zoom= zoom)
 
         return render_template("home.html", 
                                 distance= round(cost), 
                                 walking_time= round(cost/260), 
                                 map_html= "/static/map.html", 
-                                options= options, 
+                                options= options,
+                                start_location = start_location,
+                                end_location = end_location 
                                 )
     
     return render_template('home.html', 
