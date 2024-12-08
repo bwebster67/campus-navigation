@@ -14,9 +14,6 @@ graph_data = {
     "location_nodes": None
 }
 graph_data["graph"], graph_data["locations"], graph_data["location_nodes"] = build_graph(web_linked=False, file= "static/Willamette Map.kml")
-print(f"graph: {graph_data["graph"]}")
-print(f"locations: {graph_data["locations"]}")
-print(f"location_nodes: {graph_data["location_nodes"]}")
 
 # Get location options
 options = sorted(graph_data["locations"].keys())
