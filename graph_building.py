@@ -19,7 +19,7 @@ class Location:
             coords += str(node.coords)
         return hash(coords)
 
-def build_graph(web_linked = False, file: str = "doc.kml") -> tuple[Graph, dict[str, Location], dict[str, Node]]:
+def build_graph(web_linked = False, file: str = "static/Willamette Map.kml") -> tuple[Graph, dict[str, Location], dict[str, Node]]:
     """
     Returns a tuple containing the graph at index 0, 
     and a dictionary of all location nodes at index 1.

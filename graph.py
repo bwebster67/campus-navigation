@@ -20,7 +20,7 @@ class Node:
         Appends the passed node to self's adjacency list.   
         """
         self._neighbors.append((node, weight))
-    
+
 
     @property
     def name(self) -> str:
