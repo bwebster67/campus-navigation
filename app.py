@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from waitress import serve
 from graph_building import build_graph
 from pathfinding_algorithms import calculate_optimal_entrances
 from path_visualization import create_path_map
@@ -56,4 +57,5 @@ def home():
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    serve(app, host='127.0.0.1', port=8000)
+    # waitress-serve --host 127.0.0.1 hello:app
