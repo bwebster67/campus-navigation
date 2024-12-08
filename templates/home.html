@@ -97,6 +97,9 @@
                     <option value="{{ option }}"></option>
                     {% endfor %}
                 </datalist>
+                {%if start_invalid%}
+                <p style="color:red;">Invalid start location.</p>
+                {%endif%}
             </div>
             <div class="form-group">
                 <label for="end_location">End Location:</label>
@@ -106,6 +109,9 @@
                     <option value="{{ option }}"></option>
                     {% endfor %}
                 </datalist>
+                {%if end_invalid%} 
+                <p style="color:red;">Invalid end location.</p>
+                {%endif%}
             </div>
             <button type="submit">Navigate</button>
         </form>

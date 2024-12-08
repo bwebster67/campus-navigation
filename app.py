@@ -29,9 +29,21 @@ def home():
 
         # Check if locations are valid
         if start_location not in graph_data["locations"]:
-            pass
+            return render_template('home.html', 
+                                    distance = None, 
+                                    walking_time = None, 
+                                    map_html= None, 
+                                    options= options,
+                                    start_invalid= True, 
+                                    )
         if end_location not in graph_data["locations"]:
-            pass
+            return render_template('home.html', 
+                                    distance = None, 
+                                    walking_time = None, 
+                                    map_html= None, 
+                                    options= options,
+                                    end_invalid= True,
+                                    )
 
         # Calculating path
         cost, path, start, end = calculate_optimal_entrances(graph_data["graph"], graph_data["locations"][start_location], graph_data["locations"][end_location], algorithm= "dijkstra")
