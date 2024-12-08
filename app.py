@@ -52,9 +52,10 @@ def home():
         lon1, lat1 = start.coords
         lon2, lat2 = end.coords 
         path_centerpoint = ((lat1 + lat2)/2, (lon1 + lon2)/2)
+        euclidean_distance = distance(lonlat(*(lon1, lat1)), lonlat(*(lon2, lat2))).feet
 
         zoom = 18
-        if cost > 1000:
+        if euclidean_distance > 1000:
             zoom = 17
         create_path_map(start, end, path, "static", open_map= False, zoom= zoom, map_center= path_centerpoint)
 
