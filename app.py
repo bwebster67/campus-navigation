@@ -23,7 +23,7 @@ def home():
 
     # If form is submitted
     if request.method == 'POST':
-        # Getting the info from the form
+        # Get the info from the form
         start_location = request.form["start_location"]
         end_location = request.form["end_location"]
 
@@ -53,12 +53,12 @@ def home():
         lon2, lat2 = end.coords 
         path_centerpoint = ((lat1 + lat2)/2, (lon1 + lon2)/2)
         euclidean_distance = distance(lonlat(*(lon1, lat1)), lonlat(*(lon2, lat2))).feet
-
         zoom = 18
         if euclidean_distance > 1000:
             zoom = 17
         create_path_map(start, end, path, "static", open_map= False, zoom= zoom, map_center= path_centerpoint)
 
+        # Return template with map and info
         return render_template("home.html", 
                                 distance= round(cost), 
                                 walking_time= round(cost/260), 
@@ -67,7 +67,7 @@ def home():
                                 start_location = start_location,
                                 end_location = end_location 
                                 )
-    
+    # Return default template
     return render_template('home.html', 
                             distance = None, 
                             walking_time = None, 
