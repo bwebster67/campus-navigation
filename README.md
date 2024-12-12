@@ -9,7 +9,7 @@
     A navigation application for Willamette University's main campus in Salem, Oregon. 
   </p
   
-
+<div align="left">
 
 <!-- Table of Contents -->
 # 📖 Table of Contents
