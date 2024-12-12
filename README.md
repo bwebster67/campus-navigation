@@ -1,6 +1,6 @@
 <!-- README.md -->
 
-<div align="center">
+<div>
 
   <!-- <img src="assets/logo.png" alt="logo" width="200" height="auto" /> -->
   <h1>Willamette University Campus Navigation System</h1>
@@ -9,7 +9,6 @@
     A navigation application for Willamette University's main campus in Salem, Oregon. 
   </p
   
-<div align="left">
 
 <!-- Table of Contents -->
 # 📖 Table of Contents
