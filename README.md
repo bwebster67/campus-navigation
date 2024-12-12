@@ -71,7 +71,7 @@ All dependencies are contained in [requirements.txt](requirements.txt).
 ```shell
 python -m venv venv 
 ```
-Hit `ctrl + shift + p` $\rarr$ choose `select interpretor` $\rarr$ select `venv`
+Hit `ctrl + shift + p` &rarr; choose `select interpretor` &rarr; select `venv`
 ```shell
 ./venv/Scripts/activate
 ```
